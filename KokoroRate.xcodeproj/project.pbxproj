@@ -14,6 +14,8 @@
 		CEF5F9F91FC73E750032D75B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF5F9F71FC73E750032D75B /* LaunchScreen.storyboard */; };
 		CEF5FA041FC73E750032D75B /* KokoroRateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF5FA031FC73E750032D75B /* KokoroRateTests.swift */; };
 		CEF5FA0F1FC73E750032D75B /* KokoroRateUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF5FA0E1FC73E750032D75B /* KokoroRateUITests.swift */; };
+		CEF5FA1E1FC74B700032D75B /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF5FA1D1FC74B700032D75B /* HealthKit.framework */; };
+		CEF5FA211FC74C3F0032D75B /* HealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF5FA201FC74C3F0032D75B /* HealthKitManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,9 @@
 		CEF5FA0A1FC73E750032D75B /* KokoroRateUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KokoroRateUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEF5FA0E1FC73E750032D75B /* KokoroRateUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KokoroRateUITests.swift; sourceTree = "<group>"; };
 		CEF5FA101FC73E750032D75B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CEF5FA1D1FC74B700032D75B /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		CEF5FA1F1FC74B700032D75B /* KokoroRate.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KokoroRate.entitlements; sourceTree = "<group>"; };
+		CEF5FA201FC74C3F0032D75B /* HealthKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEF5FA1E1FC74B700032D75B /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +87,7 @@
 				CEF5FA021FC73E750032D75B /* KokoroRateTests */,
 				CEF5FA0D1FC73E750032D75B /* KokoroRateUITests */,
 				CEF5F9EC1FC73E750032D75B /* Products */,
+				CEF5FA1C1FC74B700032D75B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,12 +104,14 @@
 		CEF5F9ED1FC73E750032D75B /* KokoroRate */ = {
 			isa = PBXGroup;
 			children = (
+				CEF5FA1F1FC74B700032D75B /* KokoroRate.entitlements */,
 				CEF5F9EE1FC73E750032D75B /* AppDelegate.swift */,
 				CEF5F9F01FC73E750032D75B /* ViewController.swift */,
 				CEF5F9F21FC73E750032D75B /* Main.storyboard */,
 				CEF5F9F51FC73E750032D75B /* Assets.xcassets */,
 				CEF5F9F71FC73E750032D75B /* LaunchScreen.storyboard */,
 				CEF5F9FA1FC73E750032D75B /* Info.plist */,
+				CEF5FA201FC74C3F0032D75B /* HealthKitManager.swift */,
 			);
 			path = KokoroRate;
 			sourceTree = "<group>";
@@ -123,6 +132,14 @@
 				CEF5FA101FC73E750032D75B /* Info.plist */,
 			);
 			path = KokoroRateUITests;
+			sourceTree = "<group>";
+		};
+		CEF5FA1C1FC74B700032D75B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CEF5FA1D1FC74B700032D75B /* HealthKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,6 +211,11 @@
 					CEF5F9EA1FC73E750032D75B = {
 						CreatedOnToolsVersion = 9.1;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.HealthKit = {
+								enabled = 1;
+							};
+						};
 					};
 					CEF5F9FE1FC73E750032D75B = {
 						CreatedOnToolsVersion = 9.1;
@@ -261,6 +283,7 @@
 			files = (
 				CEF5F9F11FC73E750032D75B /* ViewController.swift in Sources */,
 				CEF5F9EF1FC73E750032D75B /* AppDelegate.swift in Sources */,
+				CEF5FA211FC74C3F0032D75B /* HealthKitManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,9 +449,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = KokoroRate/KokoroRate.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 75D9227XJ3;
+				DEVELOPMENT_TEAM = N6RP3H788Z;
 				INFOPLIST_FILE = KokoroRate/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ca.bcit.comp4977.KokoroRate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -441,9 +466,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = KokoroRate/KokoroRate.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 75D9227XJ3;
+				DEVELOPMENT_TEAM = N6RP3H788Z;
 				INFOPLIST_FILE = KokoroRate/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ca.bcit.comp4977.KokoroRate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
