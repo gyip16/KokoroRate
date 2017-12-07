@@ -3,6 +3,7 @@
 ### Summary ###
 
 This App was created for BCIT CST COMP 4977 iOS Development Class
+
 This is an example of how to get heart rate that was recorded by workout applications from iOS/WatchOS application
 and stored in the Health App. This application requires HealthKit authorization
 
